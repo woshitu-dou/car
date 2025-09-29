@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>车机娱乐系统 - 娱乐屏端</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark text-light min-h-screen overflow-x-hidden">
+  <!-- 背景装饰 -->
+  <div class="fixed inset-0 bg-gradient-to-br from-dark via-dark/95 to-primary/20 bg-animate -z-10"></div>
+  <div class="fixed inset-0 bg-[url('https://picsum.photos/id/1025/1920/1080')] bg-cover bg-center opacity-10 -z-10"></div>
+  
+  <!-- 娱乐屏主界面 -->
+  <div id="screen-interface" class="min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="glass-effect sticky top-0 z-50 px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <i class="fa fa-play-circle text-primary text-xl"></i>
+          <h1 class="text-xl font-bold">车机娱乐系统</h1>
+        </div>
+        
+        <div class="flex items-center space-x-6">
+          <button class="hover:text-primary transition-colors" id="connection-indicator">
+            <i class="fa fa-wifi"></i>
+          </button>
+          <button class="hover:text-primary transition-colors">
+            <i class="fa fa-battery-three-quarters"></i>
+          </button>
+          <button class="hover:text-primary transition-colors" onclick="window.location.href='index.html'">
+            <i class="fa fa-exchange"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- 主内容区 - 三分区卡片设计：左上、左下、右 -->
+    <main class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- 左侧区域（包含左上和左下两个分区） -->
+        <div class="lg:col-span-2 space-y-6">
+          <!-- 左上分区：娱乐应用 -->
+          <section class="slide-in glass-effect rounded-xl p-6" style="animation-delay: 0.1s">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-2xl font-bold flex items-center">
+                <i class="fa fa-film text-primary mr-3"></i>视频应用
+              </h2>
+              <button class="text-sm text-gray-400 hover:text-primary transition-colors">
+                查看全部 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <!-- 娱乐应用卡片 - 国产应用 -->
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('iqiyi')">
+                <div class="w-16 h-16 bg-iqiyi/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-play-circle text-2xl text-iqiyi"></i>
+                </div>
+                <h3 class="font-medium text-center">爱奇艺PAD</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('bilibili')">
+                <div class="w-16 h-16 bg-bilibili/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-play-circle text-2xl text-bilibili"></i>
+                </div>
+                <h3 class="font-medium text-center">哔哩哔哩HD</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('tencent')">
+                <div class="w-16 h-16 bg-tencent/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-play-circle text-2xl text-tencent"></i>
+                </div>
+                <h3 class="font-medium text-center">腾讯视频HD</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('youku')">
+                <div class="w-16 h-16 bg-youku/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-play-circle text-2xl text-youku"></i>
+                </div>
+                <h3 class="font-medium text-center">优酷HD</h3>
+              </div>
+            </div>
+          </section>
+          
+          <!-- 左下分区：常用应用 -->
+          <section class="slide-in glass-effect rounded-xl p-6" style="animation-delay: 0.2s">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-2xl font-bold flex items-center">
+                <i class="fa fa-th-large text-secondary mr-3"></i>常用应用
+              </h2>
+              <button class="text-sm text-gray-400 hover:text-primary transition-colors">
+                查看全部 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <!-- 常用应用卡片 -->
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('wechat')">
+                <div class="w-16 h-16 bg-wechat/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-weixin text-2xl text-wechat"></i>
+                </div>
+                <h3 class="font-medium text-center">微信</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('qq')">
+                <div class="w-16 h-16 bg-qq/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-qq text-2xl text-qq"></i>
+                </div>
+                <h3 class="font-medium text-center">QQ</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('browser')">
+                <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-chrome text-2xl text-primary"></i>
+                </div>
+                <h3 class="font-medium text-center">浏览器</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('photos')">
+                <div class="w-16 h-16 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-picture-o text-2xl text-yellow-500"></i>
+                </div>
+                <h3 class="font-medium text-center">相册</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('music')">
+                <div class="w-16 h-16 bg-purple-500/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-music text-2xl text-purple-500"></i>
+                </div>
+                <h3 class="font-medium text-center">音乐</h3>
+              </div>
+              
+              <div class="bg-dark/50 rounded-xl p-4 card-hover cursor-pointer flex flex-col items-center" onclick="launchApp('settings')">
+                <div class="w-16 h-16 bg-gray-500/20 rounded-lg flex items-center justify-center mb-3">
+                  <i class="fa fa-cog text-2xl text-gray-400"></i>
+                </div>
+                <h3 class="font-medium text-center">设置</h3>
+              </div>
+            </div>
+          </section>
+        </div>
+        
+        <!-- 右侧分区：补充信息和快捷功能 -->
+        <section class="slide-in glass-effect rounded-xl p-6 flex flex-col h-full" style="animation-delay: 0.3s">
+          <h2 class="text-2xl font-bold flex items-center mb-6">
+            <i class="fa fa-star text-accent mr-3"></i>快捷功能
+          </h2>
+          
+          <!-- 快捷控制 -->
+          <div class="bg-dark/50 rounded-xl p-4 mb-6">
+            <h3 class="font-semibold text-lg mb-4 flex items-center">
+              <i class="fa fa-sliders text-primary mr-2"></i>快捷控制
+            </h3>
+            <div class="grid grid-cols-2 gap-3">
+              <button class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-white/10 transition-colors">
+                <i class="fa fa-volume-up text-primary text-xl mb-2"></i>
+                <span class="text-sm">音量+</span>
+              </button>
+              <button class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-white/10 transition-colors">
+                <i class="fa fa-volume-down text-primary text-xl mb-2"></i>
+                <span class="text-sm">音量-</span>
+              </button>
+              <button class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-white/10 transition-colors">
+                <i class="fa fa-step-backward text-primary text-xl mb-2"></i>
+                <span class="text-sm">返回</span>
+              </button>
+              <button class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-white/10 transition-colors">
+                <i class="fa fa-home text-primary text-xl mb-2"></i>
+                <span class="text-sm">主页</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- 最近使用 -->
+          <div class="bg-dark/50 rounded-xl p-4 mb-6 flex-grow">
+            <h3 class="font-semibold text-lg mb-4 flex items-center">
+              <i class="fa fa-history text-primary mr-2"></i>最近使用
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-center p-2 hover:bg-white/5 rounded-lg transition-colors cursor-pointer" onclick="launchApp('bilibili')">
+                <div class="w-10 h-10 bg-bilibili/20 rounded-lg flex items-center justify-center mr-3">
+                  <i class="fa fa-play-circle text-bilibili"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm">哔哩哔哩HD</p>
+                  <p class="text-xs text-gray-400">今天 14:20</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center p-2 hover:bg-white/5 rounded-lg transition-colors cursor-pointer" onclick="launchApp('wechat')">
+                <div class="w-10 h-10 bg-wechat/20 rounded-lg flex items-center justify-center mr-3">
+                  <i class="fa fa-weixin text-wechat"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm">微信</p>
+                  <p class="text-xs text-gray-400">今天 13:45</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center p-2 hover:bg-white/5 rounded-lg transition-colors cursor-pointer" onclick="launchApp('tencent')">
+                <div class="w-10 h-10 bg-tencent/20 rounded-lg flex items-center justify-center mr-3">
+                  <i class="fa fa-play-circle text-tencent"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm">腾讯视频HD</p>
+                  <p class="text-xs text-gray-400">昨天 19:30</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 时间显示 -->
+          <div class="bg-dark/50 rounded-xl p-4 text-center">
+            <div class="current-time text-3xl font-bold mb-1">14:30</div>
+            <div class="text-gray-400 text-sm">
+              <span class="current-date">2023年10月15日</span> · 星期日
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    
+    <!-- 底部状态栏 -->
+    <footer class="glass-effect py-3 px-6 mt-8">
+      <div class="flex justify-between items-center">
+        <div class="text-sm text-gray-400">
+          <span class="current-time">14:30</span>
+        </div>
+        <div class="text-sm text-gray-400">
+          连接状态: <span id="connection-status" class="text-gray-300">未连接</span>
+        </div>
+        <div class="text-sm text-gray-400">
+          电量: 87%
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- 应用启动界面 -->
+  <div id="app-launcher" class="fixed inset-0 bg-black z-50 hidden items-center justify-center">
+    <div class="text-center app-launch">
+      <div id="app-icon" class="w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-6"></div>
+      <h2 id="app-name" class="text-2xl font-bold mb-2"></h2>
+      <p class="text-gray-400">正在启动...</p>
+      <div class="mt-8 w-32 h-1 bg-gray-700 rounded-full overflow-hidden mx-auto">
+        <div id="launch-progress" class="h-full bg-primary rounded-full w-0" style="transition: width 2s ease-out;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 提示信息容器 -->
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // 初始化设备连接器
+    const connector = new DeviceConnector();
+    connector.setDeviceType('screen');
+    connector.connect();
+    
+    // 更新连接状态显示
+    function updateConnectionStatus() {
+      const statusElement = document.getElementById('connection-status');
+      const indicatorElement = document.getElementById('connection-indicator');
+      
+      if (connector.getConnectionStatus()) {
+        statusElement.textContent = '已连接手机端';
+        statusElement.className = 'text-green-400';
+        indicatorElement.className = 'hover:text-primary transition-colors text-green-400';
+      } else {
+        statusElement.textContent = '未连接';
+        statusElement.className = 'text-gray-300';
+        indicatorElement.className = 'hover:text-primary transition-colors';
+      }
+    }
+    
+    // 定期检查连接状态
+    setInterval(updateConnectionStatus, 1000);
+    updateConnectionStatus();
+    
+    // 启动应用函数 - 实现真实跳转
+    function launchApp(appId) {
+      const app = apps[appId];
+      if (!app) return;
+      
+      // 显示应用启动界面
+      const launcher = document.getElementById('app-launcher');
+      document.getElementById('app-icon').className = `w-24 h-24 mx-auto rounded-full flex items-center justify-center mb-6 ${app.bg}`;
+      document.getElementById('app-icon').innerHTML = `<i class="fa fa-play-circle text-3xl ${app.color}"></i>`;
+      document.getElementById('app-name').textContent = app.name;
+      document.getElementById('launch-progress').style.width = '0%';
+      
+      launcher.classList.remove('hidden');
+      launcher.classList.add('flex');
+      
+      // 模拟加载进度
+      setTimeout(() => {
+        document.getElementById('launch-progress').style.width = '100%';
+        
+        // 2秒后关闭启动界面并跳转到应用
+        setTimeout(() => {
+          launcher.classList.remove('flex');
+          launcher.classList.add('hidden');
+          
+          // 对于真实网页应用，使用新窗口打开
+          if (app.url && app.url.startsWith('http')) {
+            window.open(app.url, '_blank');
+            showToast(`已启动 ${app.name}`);
+          } else {
+            // 对于本地功能，显示提示
+            showToast(`${app.name} 已启动`);
+          }
+        }, 2000);
+      }, 300);
+    }
+  </script>
+</body>
+</html>

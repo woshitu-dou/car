@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>车机后座娱乐系统</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark text-light min-h-screen overflow-x-hidden">
+  <!-- 背景装饰 -->
+  <div class="fixed inset-0 bg-gradient-to-br from-dark via-dark/95 to-primary/20 bg-animate -z-10"></div>
+  <div class="fixed inset-0 bg-[url('https://picsum.photos/id/1025/1920/1080')] bg-cover bg-center opacity-10 -z-10"></div>
+  
+  <!-- 设备选择界面 -->
+  <div id="device-select" class="min-h-screen flex flex-col items-center justify-center p-6 fade-in">
+    <div class="text-center mb-12">
+      <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white mb-4 text-shadow">
+        车机娱乐系统
+      </h1>
+      <p class="text-gray-300 text-lg max-w-md mx-auto">
+        请选择您正在使用的设备，以便获得最佳体验
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl w-full">
+      <div class="glass-effect rounded-2xl p-8 card-hover cursor-pointer flex flex-col items-center justify-center" onclick="window.location.href='screen.html'">
+        <div class="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+          <i class="fa fa-television text-4xl text-primary"></i>
+        </div>
+        <h2 class="text-2xl font-semibold mb-2">娱乐屏端</h2>
+        <p class="text-gray-300 text-center">车后座娱乐屏幕，直接操作使用</p>
+      </div>
+      
+      <div class="glass-effect rounded-2xl p-8 card-hover cursor-pointer flex flex-col items-center justify-center" onclick="window.location.href='phone.html'">
+        <div class="w-24 h-24 bg-secondary/20 rounded-full flex items-center justify-center mb-6">
+          <i class="fa fa-mobile text-5xl text-secondary"></i>
+        </div>
+        <h2 class="text-2xl font-semibold mb-2">手机控制端</h2>
+        <p class="text-gray-300 text-center">通过手机控制娱乐屏，远程操作</p>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-gray-400 text-sm">
+      <p>初次使用？请确保设备已连接到同一车内网络</p>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

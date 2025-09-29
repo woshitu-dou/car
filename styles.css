@@ -1,0 +1,92 @@
+/* Tailwind 配置通过CDN加载，这里仅包含自定义样式 */
+
+/* 自定义工具类 */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 基础动画定义 */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* 背景渐变动画 */
+.bg-animate {
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 应用启动动画 */
+.app-launch {
+  animation: appLaunch 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes appLaunch {
+  0% { transform: scale(0.8); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 全局样式 */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --primary: #165DFF;
+  --secondary: #36CFC9;
+  --accent: #722ED1;
+  --dark: #1D2129;
+  --light: #F2F3F5;
+  --iqiyi: #165DFF;
+  --bilibili: #FB7299;
+  --tencent: #00C1D4;
+  --youku: #2D9BFA;
+  --wechat: #07C160;
+  --qq: #12B7F5;
+}
